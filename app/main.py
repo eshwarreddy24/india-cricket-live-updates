@@ -68,12 +68,12 @@ async def matches(
 
     try:
         data = await provider.fetch_india_matches(team_query=team.lower())
-    except ProviderError as exc:
+    except ProviderError:
         return JSONResponse(
             status_code=502,
             content={
                 "configured": True,
-                "message": str(exc),
+                "message": "Unable to fetch scores from provider right now.",
                 "live_matches": [],
                 "recent_matches": [],
             },

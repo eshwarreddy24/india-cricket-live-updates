@@ -45,6 +45,6 @@ def test_provider_error_handling(monkeypatch):
 
     assert response.status_code == 502
     payload = response.json()
-    assert payload["message"] == "Cricket provider request timed out"
+    assert payload["message"] == "Unable to fetch scores from provider right now."
     assert payload["live_matches"] == []
     assert payload["recent_matches"] == []
