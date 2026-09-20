@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import Depends, FastAPI
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from .config import Settings, get_settings
@@ -29,6 +29,9 @@ async def matches(settings: Settings = Depends(get_settings)) -> MatchesResponse
     try:
         data = await CricketProvider(settings).fetch_matches()
     except (ProviderError, ValueError) as exc:
-        raise HTTPException(status_code=503, detail=str(exc), headers={"Cache-Control": "no-store"}) from exc
+        return JSONResponse(
+            status_code=503,
+            content=ErrorResponse(detail=str(exc)).model_dump(),
+            headers={"Cache-Control": "no-store"},
+        )
     return MatchesResponse(matches=data, source="CricAPI")
-
