@@ -1,3 +1,4 @@
+from pathlib import Path
 from unittest.mock import AsyncMock, patch
 
 from fastapi.testclient import TestClient
@@ -7,6 +8,7 @@ from app.main import app
 from app.provider import ProviderError
 
 client = TestClient(app)
+STATIC_DIR = Path(__file__).resolve().parents[1] / "app" / "static"
 
 
 def test_health_endpoint() -> None:
@@ -32,3 +34,11 @@ def test_provider_error_is_user_facing_unavailable_response() -> None:
     assert response.status_code == 503
     assert response.json()["unavailable"] is True
     assert "could not be reached" in response.json()["detail"]
+
+
+def test_frontend_preserves_last_update_context_on_refresh_failure() -> None:
+    script = (STATIC_DIR / "app.js").read_text()
+
+    assert "Last successful update" in script
+    assert "matchesElement.innerHTML = \"\"" not in script
+    assert 'refreshButton.textContent = "Refreshing' in script

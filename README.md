@@ -39,7 +39,7 @@ A small FastAPI application with a beginner-friendly HTML/CSS/JavaScript fronten
 uvicorn app.main:app --reload
 ```
 
-Open <http://127.0.0.1:8000>. The JSON API is available at `/api/matches`, and `/health` provides a basic health check.
+Open <http://127.0.0.1:8000>. Use **Refresh scores** to request the latest provider data; if a later request fails, the app keeps the last successful scores visible and labels when they were updated. The JSON API is available at `/api/matches`, and `/health` provides a basic health check.
 
 ## Provider configuration
 
