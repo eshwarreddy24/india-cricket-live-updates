@@ -3,6 +3,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688.svg)](https://fastapi.tiangolo.com/)
+[![Tests](https://github.com/eshwarreddy24/india-cricket-live-updates/actions/workflows/tests.yml/badge.svg)](https://github.com/eshwarreddy24/india-cricket-live-updates/actions/workflows/tests.yml)
+[![GitHub stars](https://img.shields.io/github/stars/eshwarreddy24/india-cricket-live-updates?style=flat)](https://github.com/eshwarreddy24/india-cricket-live-updates/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/eshwarreddy24/india-cricket-live-updates?style=flat)](https://github.com/eshwarreddy24/india-cricket-live-updates/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/eshwarreddy24/india-cricket-live-updates)](https://github.com/eshwarreddy24/india-cricket-live-updates/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/eshwarreddy24/india-cricket-live-updates)](https://github.com/eshwarreddy24/india-cricket-live-updates/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/eshwarreddy24/india-cricket-live-updates)](https://github.com/eshwarreddy24/india-cricket-live-updates/commits/main)
+[![Repo size](https://img.shields.io/github/repo-size/eshwarreddy24/india-cricket-live-updates)](https://github.com/eshwarreddy24/india-cricket-live-updates)
 
 A small FastAPI application with a beginner-friendly HTML/CSS/JavaScript frontend for live and recent cricket matches involving India. The application displays only data returned by a configured cricket data provider: it never ships with fabricated or fallback scores.
 
