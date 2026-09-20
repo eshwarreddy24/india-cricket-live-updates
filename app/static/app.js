@@ -2,6 +2,7 @@ const matchesElement = document.querySelector("#matches");
 const messageElement = document.querySelector("#message");
 const refreshButton = document.querySelector("#refresh");
 const updatedElement = document.querySelector("#updated");
+let lastUpdatedAt = null;
 
 function showMessage(text, type) {
   messageElement.textContent = text;
@@ -29,6 +30,7 @@ function escapeHtml(value) {
 
 async function loadMatches() {
   refreshButton.disabled = true;
+  refreshButton.textContent = "Refreshing…";
   showMessage("Loading live data…", "loading");
   try {
     const response = await fetch("/api/matches", { headers: { Accept: "application/json" } });
@@ -37,15 +39,18 @@ async function loadMatches() {
     renderMatches(payload.matches);
     messageElement.textContent = "";
     messageElement.className = "message";
-    updatedElement.textContent = `Updated ${new Date().toLocaleTimeString()}`;
+    lastUpdatedAt = new Date();
+    updatedElement.textContent = `Last updated ${lastUpdatedAt.toLocaleTimeString()}`;
   } catch (error) {
-    matchesElement.innerHTML = "";
-    showMessage(error.message, "error");
+    const lastUpdated = lastUpdatedAt
+      ? ` Last successful update: ${lastUpdatedAt.toLocaleTimeString()}.`
+      : "";
+    showMessage(`${error.message}${lastUpdated}`, "error");
   } finally {
     refreshButton.disabled = false;
+    refreshButton.textContent = "Refresh scores";
   }
 }
 
 refreshButton.addEventListener("click", loadMatches);
 loadMatches();
-
