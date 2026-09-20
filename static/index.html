@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>India Cricket Live Updates</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>India Cricket Live Updates</h1>
+    <p class="subtitle">Live and recent matches for Team India.</p>
+
+    <form id="team-form">
+      <label for="team">Team filter</label>
+      <input id="team" name="team" value="India" maxlength="30" pattern="[A-Za-z ]+" required />
+      <button type="submit">Refresh</button>
+    </form>
+
+    <section id="status" class="status"></section>
+
+    <section>
+      <h2>Live Matches</h2>
+      <div id="live-matches" class="cards"></div>
+    </section>
+
+    <section>
+      <h2>Recent Matches</h2>
+      <div id="recent-matches" class="cards"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
