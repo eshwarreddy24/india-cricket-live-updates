@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>India Cricket Live Updates</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <p class="eyebrow">INDIA CRICKET</p>
+        <h1>Live updates, without the noise.</h1>
+        <p class="intro">Live and recent matches involving India, sourced from a real cricket data provider.</p>
+      </header>
+      <section class="toolbar" aria-label="Match controls">
+        <button id="refresh" type="button">Refresh scores</button>
+        <span id="updated" class="muted"></span>
+      </section>
+      <section id="message" class="message" role="status" aria-live="polite"></section>
+      <section id="matches" class="matches" aria-live="polite"></section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+
